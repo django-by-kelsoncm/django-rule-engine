@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-rule-engine',
-    version='1.0.2',
+    version='1.0.3',
     description='Django field and widget for rule-engine with visual editor',
     author='Kelson da Costa Medeiros',
     author_email='kelsoncm@gmail.com',
