@@ -18,16 +18,21 @@ detalhadas por item da lista: cada linha traz ``valores`` e ``resultados`` com u
 
 from __future__ import annotations
 
+import logging
 import re
 from decimal import Decimal
 from functools import lru_cache
 from typing import Any, Dict, List, Optional, Pattern, Tuple, Union
 
 import rule_engine
+import rule_engine.errors
+
+logger = logging.getLogger(__name__)
 
 __all__ = [
     "DEFAULT_SENSITIVE_FIELDS",
     "OPERATORS",
+    "UNEXPECTED_ERROR",
     "explain",
     "split_conditions",
     "split_comparison",
@@ -44,6 +49,9 @@ DEFAULT_SENSITIVE_FIELDS = (
 
 #: Operadores de comparação reconhecidos, na ordem de busca (os mais longos primeiro).
 OPERATORS = ("==", "!=", ">=", "<=", "=~~", "!~~", "=~", "!~", ">", "<", "not in", "in")
+
+#: Texto exibido no lugar de erros que não vêm do ``rule_engine``.
+UNEXPECTED_ERROR = "Erro inesperado ao avaliar este trecho"
 
 SensitiveArg = Union[str, Pattern[str], None]
 
@@ -264,8 +272,15 @@ def _compiled(expression: str) -> rule_engine.Rule:
 
 
 def _error_text(exc: Exception) -> str:
-    message = getattr(exc, "message", None) or str(exc)
-    return f"{type(exc).__name__}: {message}"
+    """Mensagem exibível do erro.
+
+    Só erros do próprio ``rule_engine`` (sobre a regra e os dados avaliados) têm a mensagem
+    exibida; qualquer outra exceção vira texto genérico, para não expor detalhes internos.
+    """
+    if isinstance(exc, rule_engine.errors.EngineError):
+        return f"{type(exc).__name__}: {exc.message}"
+    logger.warning("Erro inesperado ao avaliar trecho de regra", exc_info=exc)
+    return UNEXPECTED_ERROR
 
 
 def _evaluate(expression: str, context: dict) -> Tuple[Any, str]:

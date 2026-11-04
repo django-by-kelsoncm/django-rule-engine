@@ -367,3 +367,19 @@ def test_padrao_sensivel_ignora_maiusculas():
     exp = explain("Email_Pessoal == 'x'", {"Email_Pessoal": "x"})
     assert exp["condicoes"][0]["detalhes"]["linhas"][0]["sensivel"] is True
     assert "email" in DEFAULT_SENSITIVE_FIELDS
+
+
+def test_explain_nao_expoe_mensagem_de_erro_inesperado(monkeypatch):
+    from django_rule_engine import explain as modulo
+
+    class Quebrado:
+        def evaluate(self, contexto):
+            raise RuntimeError("detalhe interno secreto")
+
+        matches = evaluate
+
+    monkeypatch.setattr(modulo, "_compiled", lambda expressao: Quebrado())
+    exp = modulo.explain("a == 1", {"a": 1})
+    assert exp["erro"] == modulo.UNEXPECTED_ERROR
+    assert exp["atendido"] is None
+    assert "secreto" not in json.dumps(exp)
