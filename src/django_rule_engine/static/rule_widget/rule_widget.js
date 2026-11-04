@@ -155,7 +155,8 @@
                     body: JSON.stringify({
                         rule: rule,
                         data: parsedData,
-                        explain: true
+                        explain: true,
+                        explain_tree: true
                     })
                 });
                 
@@ -166,7 +167,7 @@
                         const output = this.formatValidationSuccess(result);
                         // Se a condição for falsa, usa warning (amarelo), senão success (verde)
                         const resultType = result.matches === false ? 'warning' : 'success';
-                        this.showResult(resultType, output, result.explanation);
+                        this.showResult(resultType, output, result.explanation, result.explanation_tree);
                     } else {
                         this.showResult('error', `Erro de validação:\n${result.error}`);
                     }
@@ -214,12 +215,15 @@
             return value;
         }
         
-        showResult(type, message, explanation) {
+        showResult(type, message, explanation, tree) {
             this.resultDiv.className = `validation-result ${type}`;
             this.resultContent.textContent = message;
             if (this.resultExplanation) {
                 this.resultExplanation.replaceChildren();
-                if (explanation && window.RuleExplain) {
+                if (tree && window.RuleBlocks) {
+                    // Blocos encaixados (explain_tree); a tabela fica como alternativa
+                    window.RuleBlocks.render(this.resultExplanation, tree);
+                } else if (explanation && window.RuleExplain) {
                     this.resultExplanation.appendChild(window.RuleExplain.renderizar(document, explanation));
                 }
             }

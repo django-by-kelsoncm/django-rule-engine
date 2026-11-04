@@ -28,6 +28,7 @@ e qualquer lógica dinâmica configurável pelo usuário.
    :caption: Conteúdo:
 
    start-guide
+   explicacao-em-blocos
    contribute
    publishing
 

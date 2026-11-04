@@ -1,5 +1,26 @@
 # Version History
 
+## 1.2.0
+
+### 🧩 Rule explanation as a tree, drawn as blocks
+
+- New module `django_rule_engine.explain_tree` with `explain_tree(rule, context, *, sensitive=...,
+  max_items=50, item_label=None)`: builds the explanation from the `rule_engine` AST and evaluates
+  every node with `rule_engine` itself, so any rule is explained at any depth (mixed `and`/`or`,
+  `not`, nested comprehensions, ternaries, functions, arithmetic). Node types: `logico`, `nao`,
+  `comparacao`, `contem`, `funcao`, `compreensao` (per item, with `melhor_item`), `ternario`,
+  `aritmetica`, `campo`, `literal`, `expressao`. Sensitive keys are hidden, also inside nested
+  dicts. Works with `rule-engine` 4.5.3+.
+- New Scratch-like block renderer: `static/rule_widget/rule_blocks.js` (`RuleBlocks.render`),
+  `static/rule_widget/rule_blocks.css` (theming via `--dre-*` CSS variables, dark mode),
+  `django_rule_engine.blocks.render_blocks()` and the `{% regra_em_blocos %}` template tag
+  (`{% load rule_blocks %}`). Server and browser produce the same HTML (shared test fixture).
+- API: `POST /api/explain-rule/` accepts `"tree": true`; `POST /api/validate-rule/` accepts
+  `"explain_tree": true`.
+- Widget: draws the blocks when testing a rule (falls back to the table).
+- `explain()` (flat format) is unchanged.
+- Docs: new page "Explicação em árvore e desenho em blocos" with a visual example.
+
 ## 1.1.0
 
 ### 🔍 Rule explanation (`django_rule_engine.explain`)
