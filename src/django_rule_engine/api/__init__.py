@@ -1,5 +1,5 @@
 """Base API module."""
 
-from .views import validate_rule
+from .views import explain_rule, validate_rule
 
-__all__ = ['validate_rule']
+__all__ = ['explain_rule', 'validate_rule']
