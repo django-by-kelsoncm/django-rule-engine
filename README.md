@@ -63,6 +63,31 @@ colored (green = matched, red = not matched, yellow = error) and a "Campo | Espe
 table is shown, with one column per item in `$any`/`$all`.
 
 
+## 🧩 Rule Explanation as Blocks
+`explain_tree()` explains **any** rule node by node — mixed `and`/`or`, `not`, nested
+comprehensions, ternaries, functions — from the `rule_engine` AST itself, and the result can be
+drawn as nested, Scratch-like blocks (green = matched, red = not matched, gray = undefined):
+
+![Rules drawn as nested blocks](https://raw.githubusercontent.com/django-by-kelsoncm/django-rule-engine/main/docs/_static/blocos/exemplo.png)
+
+```python
+from django_rule_engine.explain_tree import explain_tree
+
+explanation = explain_tree(rule, data)  # {"atendido": False, "raiz": {"tipo": "logico", ...}}
+```
+
+```html+django
+{% load static rule_blocks %}
+<link rel="stylesheet" href="{% static 'rule_widget/rule_blocks.css' %}">
+{% regra_em_blocos explanation %}
+```
+
+or in the browser: `RuleBlocks.render(element, explanation)` (`rule_widget/rule_blocks.js`).
+Both draw the same HTML; sensitive fields stay hidden; colors are CSS variables. The API accepts
+`"tree": true` (`/api/explain-rule/`) or `"explain_tree": true` (`/api/validate-rule/`), and the
+widget draws the blocks when you test a rule. Full reference (node types, options, theming):
+[Explicação em árvore e desenho em blocos](https://django-by-kelsoncm.github.io/django-rule-engine/explicacao-em-blocos.html).
+
 ## 🎯 Django Admin Integration
 Seamlessly integrates with Django Admin - just add the field and the editor appears automatically!
 

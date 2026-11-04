@@ -76,3 +76,35 @@ def test_validate_rule_com_explain(client):
 def test_validate_rule_sem_explain_nao_muda_resposta(client):
     resposta = _post(client, "validate_rule", {"rule": "a == 1", "data": {"a": 1}})
     assert "explanation" not in resposta.json()
+
+
+def test_explain_rule_com_arvore(client):
+    resposta = _post(
+        client,
+        "explain_rule",
+        {"rule": "idade >= 18 or cpf == '1'", "data": {"idade": 15, "cpf": "1"}, "tree": True},
+    )
+    corpo = resposta.json()
+    assert corpo["valid"] is True
+    arvore = corpo["tree"]
+    assert arvore["atendido"] is True
+    idade, cpf = arvore["raiz"]["filhos"]
+    assert idade["esquerda"]["valor"] == 15
+    assert cpf["esquerda"]["valor"] is None  # sensível por padrão
+
+
+def test_explain_rule_sem_arvore_por_padrao(client):
+    corpo = _post(client, "explain_rule", {"rule": "a == 1", "data": {"a": 1}}).json()
+    assert "tree" not in corpo
+
+
+def test_validate_rule_com_explain_tree(client, settings):
+    settings.RULE_ENGINE_EXPLAIN_SENSITIVE_FIELDS = ""
+    corpo = _post(
+        client,
+        "validate_rule",
+        {"rule": "cpf == '1'", "data": {"cpf": "1"}, "explain_tree": True},
+    ).json()
+    assert corpo["valid"] is True
+    assert corpo["explanation_tree"]["raiz"]["esquerda"]["valor"] == "1"
+    assert "explanation" not in corpo

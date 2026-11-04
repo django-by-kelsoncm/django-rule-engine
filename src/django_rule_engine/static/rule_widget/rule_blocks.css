@@ -1,0 +1,208 @@
+/*
+ * Rule Blocks - blocos encaixados (estilo Scratch) da explicação em árvore de uma regra.
+ * Gerados por RuleBlocks.render (rule_blocks.js) ou pelo template tag {% regra_em_blocos %}.
+ *
+ * Personalize redefinindo as variáveis --dre-* em .dre-blocos (ou num ancestral).
+ */
+.dre-blocos {
+    --dre-fonte: inherit;
+    --dre-tamanho: 13px;
+    --dre-raio: 10px;
+    --dre-recuo: 12px;
+
+    --dre-sim-fundo: #eaf3de;
+    --dre-sim-texto: #27500a;
+    --dre-sim-borda: #3b6d11;
+    --dre-nao-fundo: #fcebeb;
+    --dre-nao-texto: #791f1f;
+    --dre-nao-borda: #a32d2d;
+    --dre-indef-fundo: #f1efe8;
+    --dre-indef-texto: #444441;
+    --dre-indef-borda: #888780;
+    --dre-grupo-fundo: #eeedfe;
+    --dre-grupo-texto: #3c3489;
+    --dre-grupo-borda: #534ab7;
+    --dre-laco-fundo: #faeeda;
+    --dre-laco-texto: #633806;
+    --dre-laco-borda: #854f0b;
+    --dre-valor-fundo: #ffffff;
+    --dre-valor-texto: #1f1f1f;
+    --dre-valor-borda: rgba(0, 0, 0, 0.25);
+
+    font-family: var(--dre-fonte);
+    font-size: var(--dre-tamanho);
+    line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+    .dre-blocos {
+        --dre-sim-fundo: #27500a;
+        --dre-sim-texto: #eaf3de;
+        --dre-sim-borda: #97c459;
+        --dre-nao-fundo: #791f1f;
+        --dre-nao-texto: #fcebeb;
+        --dre-nao-borda: #f09595;
+        --dre-indef-fundo: #444441;
+        --dre-indef-texto: #f1efe8;
+        --dre-indef-borda: #b4b2a9;
+        --dre-grupo-fundo: #3c3489;
+        --dre-grupo-texto: #eeedfe;
+        --dre-grupo-borda: #afa9ec;
+        --dre-laco-fundo: #633806;
+        --dre-laco-texto: #faeeda;
+        --dre-laco-borda: #fac775;
+        --dre-valor-fundo: #2c2c2a;
+        --dre-valor-texto: #f1efe8;
+        --dre-valor-borda: rgba(255, 255, 255, 0.3);
+    }
+}
+
+.dre-bloco {
+    margin: 6px 0;
+    padding: 6px 10px;
+    border: 1px solid var(--dre-indef-borda);
+    border-radius: var(--dre-raio);
+    background: var(--dre-indef-fundo);
+    color: var(--dre-indef-texto);
+}
+
+.dre-bloco.dre-sim {
+    background: var(--dre-sim-fundo);
+    color: var(--dre-sim-texto);
+    border-color: var(--dre-sim-borda);
+}
+
+.dre-bloco.dre-nao {
+    background: var(--dre-nao-fundo);
+    color: var(--dre-nao-texto);
+    border-color: var(--dre-nao-borda);
+}
+
+/* Blocos de agrupamento (e/ou/não/se) em roxo e de laço (funções e compreensões) em laranja; o
+   estado deles aparece no ícone e na borda esquerda. */
+.dre-bloco.dre-tipo-logico,
+.dre-bloco.dre-tipo-nao,
+.dre-bloco.dre-tipo-ternario {
+    background: var(--dre-grupo-fundo);
+    color: var(--dre-grupo-texto);
+    border-color: var(--dre-grupo-borda);
+}
+
+.dre-bloco.dre-tipo-funcao,
+.dre-bloco.dre-tipo-compreensao {
+    background: var(--dre-laco-fundo);
+    color: var(--dre-laco-texto);
+    border-color: var(--dre-laco-borda);
+}
+
+.dre-bloco:is(.dre-tipo-logico, .dre-tipo-nao, .dre-tipo-ternario, .dre-tipo-funcao, .dre-tipo-compreensao) {
+    border-left-width: 5px;
+}
+
+.dre-bloco:is(.dre-tipo-logico, .dre-tipo-nao, .dre-tipo-ternario, .dre-tipo-funcao, .dre-tipo-compreensao).dre-sim {
+    border-left-color: var(--dre-sim-borda);
+}
+
+.dre-bloco:is(.dre-tipo-logico, .dre-tipo-nao, .dre-tipo-ternario, .dre-tipo-funcao, .dre-tipo-compreensao).dre-nao {
+    border-left-color: var(--dre-nao-borda);
+}
+
+.dre-cabeca {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+summary.dre-cabeca {
+    cursor: pointer;
+    list-style: none;
+}
+
+summary.dre-cabeca::-webkit-details-marker {
+    display: none;
+}
+
+details.dre-tipo-item > summary.dre-cabeca::after {
+    content: '▸';
+    margin-left: auto;
+}
+
+details.dre-tipo-item[open] > summary.dre-cabeca::after {
+    content: '▾';
+}
+
+.dre-filhos {
+    margin: 6px 0 0 4px;
+    padding-left: var(--dre-recuo);
+    border-left: 3px solid currentColor;
+}
+
+.dre-icone {
+    display: inline-flex;
+    justify-content: center;
+    width: 1.3em;
+    font-weight: 600;
+}
+
+.dre-titulo {
+    font-weight: 600;
+}
+
+.dre-rotulo {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.dre-valor {
+    padding: 1px 9px;
+    border: 1px solid var(--dre-valor-borda);
+    border-radius: 999px;
+    background: var(--dre-valor-fundo);
+    color: var(--dre-valor-texto);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.dre-oculto {
+    font-style: italic;
+}
+
+.dre-op {
+    font-style: italic;
+}
+
+.dre-trecho {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.95em;
+    background: none;
+    color: inherit;
+}
+
+.dre-meta {
+    font-size: 0.92em;
+    opacity: 0.85;
+}
+
+.dre-destaque {
+    font-weight: 600;
+    opacity: 1;
+}
+
+.dre-ramo {
+    margin: 4px 0;
+}
+
+.dre-ramo > .dre-titulo {
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.dre-erro {
+    margin-top: 4px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: var(--dre-indef-fundo);
+    color: var(--dre-indef-texto);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+}

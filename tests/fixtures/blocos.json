@@ -1,0 +1,4038 @@
+[
+ {
+  "nome": "matriculas",
+  "explicacao": {
+   "regra": "tipo_usuario in ['Aluno'] and $any([m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true and m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio'] for m in outras_matriculas])",
+   "resultado": false,
+   "atendido": false,
+   "erro": "",
+   "raiz": {
+    "tipo": "logico",
+    "trecho": "tipo_usuario in ['Aluno'] and $any([m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true and m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio'] for m in outras_matriculas])",
+    "valor": false,
+    "atendido": false,
+    "erro": "",
+    "operador": "and",
+    "filhos": [
+     {
+      "tipo": "contem",
+      "trecho": "tipo_usuario in ['Aluno']",
+      "valor": true,
+      "atendido": true,
+      "erro": "",
+      "operador": "in",
+      "esquerda": {
+       "tipo": "campo",
+       "trecho": "tipo_usuario",
+       "valor": "Aluno",
+       "atendido": null,
+       "erro": "",
+       "rotulo": "tipo_usuario",
+       "sensivel": false
+      },
+      "direita": {
+       "tipo": "literal",
+       "trecho": "['Aluno']",
+       "valor": [
+        "Aluno"
+       ],
+       "atendido": null,
+       "erro": ""
+      }
+     },
+     {
+      "tipo": "funcao",
+      "trecho": "$any([m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true and m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio'] for m in outras_matriculas])",
+      "valor": false,
+      "atendido": false,
+      "erro": "",
+      "nome": "$any",
+      "argumentos": [
+       {
+        "tipo": "compreensao",
+        "trecho": "[m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true and m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio'] for m in outras_matriculas]",
+        "valor": [
+         false,
+         false
+        ],
+        "atendido": null,
+        "erro": "",
+        "variavel": "m",
+        "lista": {
+         "tipo": "campo",
+         "trecho": "outras_matriculas",
+         "valor": null,
+         "atendido": null,
+         "erro": "",
+         "rotulo": "outras_matriculas",
+         "sensivel": false
+        },
+        "filtro": "",
+        "expressao": "m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true and m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio']",
+        "itens": [
+         {
+          "indice": 0,
+          "rotulo": "M-0001",
+          "incluido": true,
+          "filtro": null,
+          "expressao": {
+           "tipo": "logico",
+           "trecho": "m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true and m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio']",
+           "valor": false,
+           "atendido": false,
+           "erro": "",
+           "operador": "and",
+           "filhos": [
+            {
+             "tipo": "comparacao",
+             "trecho": "m['tipo'] == 'aluno'",
+             "valor": true,
+             "atendido": true,
+             "erro": "",
+             "operador": "==",
+             "esquerda": {
+              "tipo": "campo",
+              "trecho": "m['tipo']",
+              "valor": "aluno",
+              "atendido": null,
+              "erro": "",
+              "rotulo": "m.tipo",
+              "sensivel": false
+             },
+             "direita": {
+              "tipo": "literal",
+              "trecho": "'aluno'",
+              "valor": "aluno",
+              "atendido": null,
+              "erro": ""
+             }
+            },
+            {
+             "tipo": "comparacao",
+             "trecho": "m['detalhamento']['ativo'] == true",
+             "valor": true,
+             "atendido": true,
+             "erro": "",
+             "operador": "==",
+             "esquerda": {
+              "tipo": "campo",
+              "trecho": "m['detalhamento']['ativo']",
+              "valor": true,
+              "atendido": true,
+              "erro": "",
+              "rotulo": "m.detalhamento.ativo",
+              "sensivel": false
+             },
+             "direita": {
+              "tipo": "literal",
+              "trecho": "true",
+              "valor": true,
+              "atendido": true,
+              "erro": ""
+             }
+            },
+            {
+             "tipo": "contem",
+             "trecho": "m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio']",
+             "valor": false,
+             "atendido": false,
+             "erro": "",
+             "operador": "in",
+             "esquerda": {
+              "tipo": "campo",
+              "trecho": "m['detalhamento']['modalidade']",
+              "valor": "Técnico Integrado",
+              "atendido": null,
+              "erro": "",
+              "rotulo": "m.detalhamento.modalidade",
+              "sensivel": false
+             },
+             "direita": {
+              "tipo": "literal",
+              "trecho": "['Técnico integrado ao ensino médio']",
+              "valor": [
+               "Técnico integrado ao ensino médio"
+              ],
+              "atendido": null,
+              "erro": ""
+             }
+            }
+           ]
+          },
+          "atendido": false
+         },
+         {
+          "indice": 1,
+          "rotulo": "M-0002",
+          "incluido": true,
+          "filtro": null,
+          "expressao": {
+           "tipo": "logico",
+           "trecho": "m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true and m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio']",
+           "valor": false,
+           "atendido": false,
+           "erro": "",
+           "operador": "and",
+           "filhos": [
+            {
+             "tipo": "comparacao",
+             "trecho": "m['tipo'] == 'aluno'",
+             "valor": true,
+             "atendido": true,
+             "erro": "",
+             "operador": "==",
+             "esquerda": {
+              "tipo": "campo",
+              "trecho": "m['tipo']",
+              "valor": "aluno",
+              "atendido": null,
+              "erro": "",
+              "rotulo": "m.tipo",
+              "sensivel": false
+             },
+             "direita": {
+              "tipo": "literal",
+              "trecho": "'aluno'",
+              "valor": "aluno",
+              "atendido": null,
+              "erro": ""
+             }
+            },
+            {
+             "tipo": "comparacao",
+             "trecho": "m['detalhamento']['ativo'] == true",
+             "valor": false,
+             "atendido": false,
+             "erro": "",
+             "operador": "==",
+             "esquerda": {
+              "tipo": "campo",
+              "trecho": "m['detalhamento']['ativo']",
+              "valor": false,
+              "atendido": false,
+              "erro": "",
+              "rotulo": "m.detalhamento.ativo",
+              "sensivel": false
+             },
+             "direita": {
+              "tipo": "literal",
+              "trecho": "true",
+              "valor": true,
+              "atendido": true,
+              "erro": ""
+             }
+            },
+            {
+             "tipo": "contem",
+             "trecho": "m['detalhamento']['modalidade'] in ['Técnico integrado ao ensino médio']",
+             "valor": false,
+             "atendido": false,
+             "erro": "",
+             "operador": "in",
+             "esquerda": {
+              "tipo": "campo",
+              "trecho": "m['detalhamento']['modalidade']",
+              "valor": "FIC",
+              "atendido": null,
+              "erro": "",
+              "rotulo": "m.detalhamento.modalidade",
+              "sensivel": false
+             },
+             "direita": {
+              "tipo": "literal",
+              "trecho": "['Técnico integrado ao ensino médio']",
+              "valor": [
+               "Técnico integrado ao ensino médio"
+              ],
+              "atendido": null,
+              "erro": ""
+             }
+            }
+           ]
+          },
+          "atendido": false
+         }
+        ],
+        "total": 2,
+        "truncado": false,
+        "melhor_item": 0
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-nao",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-bloco dre-tipo-logico dre-nao",
+     "texto": null,
+     "atributos": {},
+     "filhos": [
+      {
+       "tag": "div",
+       "classe": "dre-cabeca",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "span",
+         "classe": "dre-icone",
+         "texto": "✗",
+         "atributos": {
+          "title": "Não atendido",
+          "aria-label": "Não atendido"
+         },
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-titulo",
+         "texto": "todas estas condições",
+         "atributos": {},
+         "filhos": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "classe": "dre-filhos",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-contem dre-sim",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✓",
+             "atributos": {
+              "title": "Atendido",
+              "aria-label": "Atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "tipo_usuario",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "Aluno",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-op",
+             "texto": "está em",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "[Aluno]",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-funcao dre-nao",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✗",
+             "atributos": {
+              "title": "Não atendido",
+              "aria-label": "Não atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-titulo",
+             "texto": "pelo menos um é verdadeiro",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "falso",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "classe": "dre-filhos",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "div",
+             "classe": "dre-bloco dre-tipo-compreensao dre-indef",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "div",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "?",
+                 "atributos": {
+                  "title": "Indefinido",
+                  "aria-label": "Indefinido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "para cada m em",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "outras_matriculas",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta",
+                 "texto": "2 itens",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "details",
+                 "classe": "dre-bloco dre-tipo-item dre-nao",
+                 "texto": null,
+                 "atributos": {
+                  "open": ""
+                 },
+                 "filhos": [
+                  {
+                   "tag": "summary",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✗",
+                     "atributos": {
+                      "title": "Não atendido",
+                      "aria-label": "Não atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-titulo",
+                     "texto": "item 0",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "M-0001",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-meta",
+                     "texto": "2 de 3",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-meta dre-destaque",
+                     "texto": "mais perto",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  },
+                  {
+                   "tag": "div",
+                   "classe": "dre-filhos",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "div",
+                     "classe": "dre-bloco dre-tipo-logico dre-nao",
+                     "texto": null,
+                     "atributos": {},
+                     "filhos": [
+                      {
+                       "tag": "div",
+                       "classe": "dre-cabeca",
+                       "texto": null,
+                       "atributos": {},
+                       "filhos": [
+                        {
+                         "tag": "span",
+                         "classe": "dre-icone",
+                         "texto": "✗",
+                         "atributos": {
+                          "title": "Não atendido",
+                          "aria-label": "Não atendido"
+                         },
+                         "filhos": []
+                        },
+                        {
+                         "tag": "span",
+                         "classe": "dre-titulo",
+                         "texto": "todas estas condições",
+                         "atributos": {},
+                         "filhos": []
+                        }
+                       ]
+                      },
+                      {
+                       "tag": "div",
+                       "classe": "dre-filhos",
+                       "texto": null,
+                       "atributos": {},
+                       "filhos": [
+                        {
+                         "tag": "div",
+                         "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+                         "texto": null,
+                         "atributos": {},
+                         "filhos": [
+                          {
+                           "tag": "div",
+                           "classe": "dre-cabeca",
+                           "texto": null,
+                           "atributos": {},
+                           "filhos": [
+                            {
+                             "tag": "span",
+                             "classe": "dre-icone",
+                             "texto": "✓",
+                             "atributos": {
+                              "title": "Atendido",
+                              "aria-label": "Atendido"
+                             },
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-rotulo",
+                             "texto": "m.tipo",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "aluno",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-op",
+                             "texto": "=",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "aluno",
+                             "atributos": {},
+                             "filhos": []
+                            }
+                           ]
+                          }
+                         ]
+                        },
+                        {
+                         "tag": "div",
+                         "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+                         "texto": null,
+                         "atributos": {},
+                         "filhos": [
+                          {
+                           "tag": "div",
+                           "classe": "dre-cabeca",
+                           "texto": null,
+                           "atributos": {},
+                           "filhos": [
+                            {
+                             "tag": "span",
+                             "classe": "dre-icone",
+                             "texto": "✓",
+                             "atributos": {
+                              "title": "Atendido",
+                              "aria-label": "Atendido"
+                             },
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-rotulo",
+                             "texto": "m.detalhamento.ativo",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "verdadeiro",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-op",
+                             "texto": "=",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "verdadeiro",
+                             "atributos": {},
+                             "filhos": []
+                            }
+                           ]
+                          }
+                         ]
+                        },
+                        {
+                         "tag": "div",
+                         "classe": "dre-bloco dre-tipo-contem dre-nao",
+                         "texto": null,
+                         "atributos": {},
+                         "filhos": [
+                          {
+                           "tag": "div",
+                           "classe": "dre-cabeca",
+                           "texto": null,
+                           "atributos": {},
+                           "filhos": [
+                            {
+                             "tag": "span",
+                             "classe": "dre-icone",
+                             "texto": "✗",
+                             "atributos": {
+                              "title": "Não atendido",
+                              "aria-label": "Não atendido"
+                             },
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-rotulo",
+                             "texto": "m.detalhamento.modalidade",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "Técnico Integrado",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-op",
+                             "texto": "está em",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "[Técnico integrado ao ensino médio]",
+                             "atributos": {},
+                             "filhos": []
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "details",
+                 "classe": "dre-bloco dre-tipo-item dre-nao",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "summary",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✗",
+                     "atributos": {
+                      "title": "Não atendido",
+                      "aria-label": "Não atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-titulo",
+                     "texto": "item 1",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "M-0002",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-meta",
+                     "texto": "1 de 3",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  },
+                  {
+                   "tag": "div",
+                   "classe": "dre-filhos",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "div",
+                     "classe": "dre-bloco dre-tipo-logico dre-nao",
+                     "texto": null,
+                     "atributos": {},
+                     "filhos": [
+                      {
+                       "tag": "div",
+                       "classe": "dre-cabeca",
+                       "texto": null,
+                       "atributos": {},
+                       "filhos": [
+                        {
+                         "tag": "span",
+                         "classe": "dre-icone",
+                         "texto": "✗",
+                         "atributos": {
+                          "title": "Não atendido",
+                          "aria-label": "Não atendido"
+                         },
+                         "filhos": []
+                        },
+                        {
+                         "tag": "span",
+                         "classe": "dre-titulo",
+                         "texto": "todas estas condições",
+                         "atributos": {},
+                         "filhos": []
+                        }
+                       ]
+                      },
+                      {
+                       "tag": "div",
+                       "classe": "dre-filhos",
+                       "texto": null,
+                       "atributos": {},
+                       "filhos": [
+                        {
+                         "tag": "div",
+                         "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+                         "texto": null,
+                         "atributos": {},
+                         "filhos": [
+                          {
+                           "tag": "div",
+                           "classe": "dre-cabeca",
+                           "texto": null,
+                           "atributos": {},
+                           "filhos": [
+                            {
+                             "tag": "span",
+                             "classe": "dre-icone",
+                             "texto": "✓",
+                             "atributos": {
+                              "title": "Atendido",
+                              "aria-label": "Atendido"
+                             },
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-rotulo",
+                             "texto": "m.tipo",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "aluno",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-op",
+                             "texto": "=",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "aluno",
+                             "atributos": {},
+                             "filhos": []
+                            }
+                           ]
+                          }
+                         ]
+                        },
+                        {
+                         "tag": "div",
+                         "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+                         "texto": null,
+                         "atributos": {},
+                         "filhos": [
+                          {
+                           "tag": "div",
+                           "classe": "dre-cabeca",
+                           "texto": null,
+                           "atributos": {},
+                           "filhos": [
+                            {
+                             "tag": "span",
+                             "classe": "dre-icone",
+                             "texto": "✗",
+                             "atributos": {
+                              "title": "Não atendido",
+                              "aria-label": "Não atendido"
+                             },
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-rotulo",
+                             "texto": "m.detalhamento.ativo",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "falso",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-op",
+                             "texto": "=",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "verdadeiro",
+                             "atributos": {},
+                             "filhos": []
+                            }
+                           ]
+                          }
+                         ]
+                        },
+                        {
+                         "tag": "div",
+                         "classe": "dre-bloco dre-tipo-contem dre-nao",
+                         "texto": null,
+                         "atributos": {},
+                         "filhos": [
+                          {
+                           "tag": "div",
+                           "classe": "dre-cabeca",
+                           "texto": null,
+                           "atributos": {},
+                           "filhos": [
+                            {
+                             "tag": "span",
+                             "classe": "dre-icone",
+                             "texto": "✗",
+                             "atributos": {
+                              "title": "Não atendido",
+                              "aria-label": "Não atendido"
+                             },
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-rotulo",
+                             "texto": "m.detalhamento.modalidade",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "FIC",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-op",
+                             "texto": "está em",
+                             "atributos": {},
+                             "filhos": []
+                            },
+                            {
+                             "tag": "span",
+                             "classe": "dre-valor",
+                             "texto": "[Técnico integrado ao ensino médio]",
+                             "atributos": {},
+                             "filhos": []
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "nome": "misturado",
+  "explicacao": {
+   "regra": "idade >= 18 or (campus in ['ZN', 'CNAT'] and not bloqueado) or cpf == '1'",
+   "resultado": true,
+   "atendido": true,
+   "erro": "",
+   "raiz": {
+    "tipo": "logico",
+    "trecho": "idade >= 18 or campus in ['ZN', 'CNAT'] and not bloqueado or cpf == '1'",
+    "valor": true,
+    "atendido": true,
+    "erro": "",
+    "operador": "or",
+    "filhos": [
+     {
+      "tipo": "comparacao",
+      "trecho": "idade >= 18",
+      "valor": false,
+      "atendido": false,
+      "erro": "",
+      "operador": ">=",
+      "esquerda": {
+       "tipo": "campo",
+       "trecho": "idade",
+       "valor": 16,
+       "atendido": null,
+       "erro": "",
+       "rotulo": "idade",
+       "sensivel": false
+      },
+      "direita": {
+       "tipo": "literal",
+       "trecho": "18",
+       "valor": 18,
+       "atendido": null,
+       "erro": ""
+      }
+     },
+     {
+      "tipo": "logico",
+      "trecho": "campus in ['ZN', 'CNAT'] and not bloqueado",
+      "valor": true,
+      "atendido": true,
+      "erro": "",
+      "operador": "and",
+      "filhos": [
+       {
+        "tipo": "contem",
+        "trecho": "campus in ['ZN', 'CNAT']",
+        "valor": true,
+        "atendido": true,
+        "erro": "",
+        "operador": "in",
+        "esquerda": {
+         "tipo": "campo",
+         "trecho": "campus",
+         "valor": "ZN",
+         "atendido": null,
+         "erro": "",
+         "rotulo": "campus",
+         "sensivel": false
+        },
+        "direita": {
+         "tipo": "literal",
+         "trecho": "['ZN', 'CNAT']",
+         "valor": [
+          "ZN",
+          "CNAT"
+         ],
+         "atendido": null,
+         "erro": ""
+        }
+       },
+       {
+        "tipo": "nao",
+        "trecho": "not bloqueado",
+        "valor": true,
+        "atendido": true,
+        "erro": "",
+        "filho": {
+         "tipo": "campo",
+         "trecho": "bloqueado",
+         "valor": false,
+         "atendido": false,
+         "erro": "",
+         "rotulo": "bloqueado",
+         "sensivel": false
+        }
+       }
+      ]
+     },
+     {
+      "tipo": "comparacao",
+      "trecho": "cpf == '1'",
+      "valor": true,
+      "atendido": true,
+      "erro": "",
+      "operador": "==",
+      "esquerda": {
+       "tipo": "campo",
+       "trecho": "cpf",
+       "valor": null,
+       "atendido": null,
+       "erro": "",
+       "rotulo": "cpf",
+       "sensivel": true
+      },
+      "direita": {
+       "tipo": "literal",
+       "trecho": "'1'",
+       "valor": "1",
+       "atendido": null,
+       "erro": ""
+      }
+     }
+    ]
+   }
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-sim",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-bloco dre-tipo-logico dre-sim",
+     "texto": null,
+     "atributos": {},
+     "filhos": [
+      {
+       "tag": "div",
+       "classe": "dre-cabeca",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "span",
+         "classe": "dre-icone",
+         "texto": "✓",
+         "atributos": {
+          "title": "Atendido",
+          "aria-label": "Atendido"
+         },
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-titulo",
+         "texto": "alguma destas condições",
+         "atributos": {},
+         "filhos": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "classe": "dre-filhos",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✗",
+             "atributos": {
+              "title": "Não atendido",
+              "aria-label": "Não atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "idade",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "16",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-op",
+             "texto": "≥",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "18",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-logico dre-sim",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✓",
+             "atributos": {
+              "title": "Atendido",
+              "aria-label": "Atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-titulo",
+             "texto": "todas estas condições",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "classe": "dre-filhos",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "div",
+             "classe": "dre-bloco dre-tipo-contem dre-sim",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "div",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "✓",
+                 "atributos": {
+                  "title": "Atendido",
+                  "aria-label": "Atendido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "campus",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-valor",
+                 "texto": "ZN",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-op",
+                 "texto": "está em",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-valor",
+                 "texto": "[ZN, CNAT]",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "classe": "dre-bloco dre-tipo-nao dre-sim",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "div",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "✓",
+                 "atributos": {
+                  "title": "Atendido",
+                  "aria-label": "Atendido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "não é verdade que",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-campo dre-nao",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✗",
+                     "atributos": {
+                      "title": "Não atendido",
+                      "aria-label": "Não atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "bloqueado",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "falso",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✓",
+             "atributos": {
+              "title": "Atendido",
+              "aria-label": "Atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "cpf",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor dre-oculto",
+             "texto": "oculto",
+             "atributos": {
+              "title": "Campo sensível: valor não exibido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-op",
+             "texto": "=",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "1",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "nome": "ternario",
+  "explicacao": {
+   "regra": "(a ? b : c) and x =~ '^a'",
+   "resultado": true,
+   "atendido": true,
+   "erro": "",
+   "raiz": {
+    "tipo": "logico",
+    "trecho": "(a ? b : c) and x =~ '^a'",
+    "valor": true,
+    "atendido": true,
+    "erro": "",
+    "operador": "and",
+    "filhos": [
+     {
+      "tipo": "ternario",
+      "trecho": "a ? b : c",
+      "valor": true,
+      "atendido": true,
+      "erro": "",
+      "condicao": {
+       "tipo": "campo",
+       "trecho": "a",
+       "valor": false,
+       "atendido": false,
+       "erro": "",
+       "rotulo": "a",
+       "sensivel": false
+      },
+      "se_verdadeiro": {
+       "tipo": "campo",
+       "trecho": "b",
+       "valor": true,
+       "atendido": true,
+       "erro": "",
+       "rotulo": "b",
+       "sensivel": false
+      },
+      "se_falso": {
+       "tipo": "campo",
+       "trecho": "c",
+       "valor": true,
+       "atendido": true,
+       "erro": "",
+       "rotulo": "c",
+       "sensivel": false
+      }
+     },
+     {
+      "tipo": "comparacao",
+      "trecho": "x =~ '^a'",
+      "valor": true,
+      "atendido": true,
+      "erro": "",
+      "operador": "=~",
+      "esquerda": {
+       "tipo": "campo",
+       "trecho": "x",
+       "valor": "abc",
+       "atendido": null,
+       "erro": "",
+       "rotulo": "x",
+       "sensivel": false
+      },
+      "direita": {
+       "tipo": "literal",
+       "trecho": "'^a'",
+       "valor": "^a",
+       "atendido": null,
+       "erro": ""
+      }
+     }
+    ]
+   }
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-sim",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-bloco dre-tipo-logico dre-sim",
+     "texto": null,
+     "atributos": {},
+     "filhos": [
+      {
+       "tag": "div",
+       "classe": "dre-cabeca",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "span",
+         "classe": "dre-icone",
+         "texto": "✓",
+         "atributos": {
+          "title": "Atendido",
+          "aria-label": "Atendido"
+         },
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-titulo",
+         "texto": "todas estas condições",
+         "atributos": {},
+         "filhos": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "classe": "dre-filhos",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-ternario dre-sim",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✓",
+             "atributos": {
+              "title": "Atendido",
+              "aria-label": "Atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-titulo",
+             "texto": "se… então… senão",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "verdadeiro",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "classe": "dre-filhos",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "div",
+             "classe": "dre-ramo",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "span",
+               "classe": "dre-titulo",
+               "texto": "se",
+               "atributos": {},
+               "filhos": []
+              },
+              {
+               "tag": "div",
+               "classe": "dre-bloco dre-tipo-campo dre-nao",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-cabeca",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-icone",
+                   "texto": "✗",
+                   "atributos": {
+                    "title": "Não atendido",
+                    "aria-label": "Não atendido"
+                   },
+                   "filhos": []
+                  },
+                  {
+                   "tag": "span",
+                   "classe": "dre-rotulo",
+                   "texto": "a",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "span",
+                   "classe": "dre-valor",
+                   "texto": "falso",
+                   "atributos": {},
+                   "filhos": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "classe": "dre-ramo",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "span",
+               "classe": "dre-titulo",
+               "texto": "então",
+               "atributos": {},
+               "filhos": []
+              },
+              {
+               "tag": "div",
+               "classe": "dre-bloco dre-tipo-campo dre-sim",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-cabeca",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-icone",
+                   "texto": "✓",
+                   "atributos": {
+                    "title": "Atendido",
+                    "aria-label": "Atendido"
+                   },
+                   "filhos": []
+                  },
+                  {
+                   "tag": "span",
+                   "classe": "dre-rotulo",
+                   "texto": "b",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "span",
+                   "classe": "dre-valor",
+                   "texto": "verdadeiro",
+                   "atributos": {},
+                   "filhos": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "classe": "dre-ramo",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "span",
+               "classe": "dre-titulo",
+               "texto": "senão",
+               "atributos": {},
+               "filhos": []
+              },
+              {
+               "tag": "div",
+               "classe": "dre-bloco dre-tipo-campo dre-sim",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-cabeca",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-icone",
+                   "texto": "✓",
+                   "atributos": {
+                    "title": "Atendido",
+                    "aria-label": "Atendido"
+                   },
+                   "filhos": []
+                  },
+                  {
+                   "tag": "span",
+                   "classe": "dre-rotulo",
+                   "texto": "c",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "span",
+                   "classe": "dre-valor",
+                   "texto": "verdadeiro",
+                   "atributos": {},
+                   "filhos": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✓",
+             "atributos": {
+              "title": "Atendido",
+              "aria-label": "Atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "x",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "abc",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-op",
+             "texto": "casa com",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "^a",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "nome": "filtro",
+  "explicacao": {
+   "regra": "$all([v > 0 for v in vs if v != 0])",
+   "resultado": false,
+   "atendido": false,
+   "erro": "",
+   "raiz": {
+    "tipo": "funcao",
+    "trecho": "$all([v > 0 for v in vs if v != 0])",
+    "valor": false,
+    "atendido": false,
+    "erro": "",
+    "nome": "$all",
+    "argumentos": [
+     {
+      "tipo": "compreensao",
+      "trecho": "[v > 0 for v in vs if v != 0]",
+      "valor": [
+       true,
+       false
+      ],
+      "atendido": null,
+      "erro": "",
+      "variavel": "v",
+      "lista": {
+       "tipo": "campo",
+       "trecho": "vs",
+       "valor": null,
+       "atendido": null,
+       "erro": "",
+       "rotulo": "vs",
+       "sensivel": false
+      },
+      "filtro": "v != 0",
+      "expressao": "v > 0",
+      "itens": [
+       {
+        "indice": 0,
+        "rotulo": "0",
+        "incluido": false,
+        "filtro": {
+         "tipo": "comparacao",
+         "trecho": "v != 0",
+         "valor": false,
+         "atendido": false,
+         "erro": "",
+         "operador": "!=",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": 0,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "0",
+          "valor": 0,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "expressao": {
+         "tipo": "comparacao",
+         "trecho": "v > 0",
+         "valor": false,
+         "atendido": false,
+         "erro": "",
+         "operador": ">",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": 0,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "0",
+          "valor": 0,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "atendido": null
+       },
+       {
+        "indice": 1,
+        "rotulo": "2",
+        "incluido": true,
+        "filtro": {
+         "tipo": "comparacao",
+         "trecho": "v != 0",
+         "valor": true,
+         "atendido": true,
+         "erro": "",
+         "operador": "!=",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": 2,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "0",
+          "valor": 0,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "expressao": {
+         "tipo": "comparacao",
+         "trecho": "v > 0",
+         "valor": true,
+         "atendido": true,
+         "erro": "",
+         "operador": ">",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": 2,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "0",
+          "valor": 0,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "atendido": true
+       },
+       {
+        "indice": 2,
+        "rotulo": "-1",
+        "incluido": true,
+        "filtro": {
+         "tipo": "comparacao",
+         "trecho": "v != 0",
+         "valor": true,
+         "atendido": true,
+         "erro": "",
+         "operador": "!=",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": -1,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "0",
+          "valor": 0,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "expressao": {
+         "tipo": "comparacao",
+         "trecho": "v > 0",
+         "valor": false,
+         "atendido": false,
+         "erro": "",
+         "operador": ">",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": -1,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "0",
+          "valor": 0,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "atendido": false
+       }
+      ],
+      "total": 3,
+      "truncado": false,
+      "melhor_item": 1
+     }
+    ]
+   }
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-nao",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-bloco dre-tipo-funcao dre-nao",
+     "texto": null,
+     "atributos": {},
+     "filhos": [
+      {
+       "tag": "div",
+       "classe": "dre-cabeca",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "span",
+         "classe": "dre-icone",
+         "texto": "✗",
+         "atributos": {
+          "title": "Não atendido",
+          "aria-label": "Não atendido"
+         },
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-titulo",
+         "texto": "todos são verdadeiros",
+         "atributos": {},
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-valor",
+         "texto": "falso",
+         "atributos": {},
+         "filhos": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "classe": "dre-filhos",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-compreensao dre-indef",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "?",
+             "atributos": {
+              "title": "Indefinido",
+              "aria-label": "Indefinido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-titulo",
+             "texto": "para cada v em",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "vs",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-meta",
+             "texto": "3 itens",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-meta",
+             "texto": "se",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "code",
+             "classe": "dre-trecho",
+             "texto": "v != 0",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "classe": "dre-filhos",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "details",
+             "classe": "dre-bloco dre-tipo-item dre-indef",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "summary",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "?",
+                 "atributos": {
+                  "title": "Indefinido",
+                  "aria-label": "Indefinido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "item 0",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "0",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta",
+                 "texto": "fora do filtro",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-ramo",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-titulo",
+                   "texto": "se",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "div",
+                   "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "div",
+                     "classe": "dre-cabeca",
+                     "texto": null,
+                     "atributos": {},
+                     "filhos": [
+                      {
+                       "tag": "span",
+                       "classe": "dre-icone",
+                       "texto": "✗",
+                       "atributos": {
+                        "title": "Não atendido",
+                        "aria-label": "Não atendido"
+                       },
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-rotulo",
+                       "texto": "v",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "0",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-op",
+                       "texto": "≠",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "0",
+                       "atributos": {},
+                       "filhos": []
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✗",
+                     "atributos": {
+                      "title": "Não atendido",
+                      "aria-label": "Não atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "v",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "0",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-op",
+                     "texto": ">",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "0",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "details",
+             "classe": "dre-bloco dre-tipo-item dre-sim",
+             "texto": null,
+             "atributos": {
+              "open": ""
+             },
+             "filhos": [
+              {
+               "tag": "summary",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "✓",
+                 "atributos": {
+                  "title": "Atendido",
+                  "aria-label": "Atendido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "item 1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "2",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta",
+                 "texto": "1 de 1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta dre-destaque",
+                 "texto": "atende",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-ramo",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-titulo",
+                   "texto": "se",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "div",
+                   "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "div",
+                     "classe": "dre-cabeca",
+                     "texto": null,
+                     "atributos": {},
+                     "filhos": [
+                      {
+                       "tag": "span",
+                       "classe": "dre-icone",
+                       "texto": "✓",
+                       "atributos": {
+                        "title": "Atendido",
+                        "aria-label": "Atendido"
+                       },
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-rotulo",
+                       "texto": "v",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "2",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-op",
+                       "texto": "≠",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "0",
+                       "atributos": {},
+                       "filhos": []
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✓",
+                     "atributos": {
+                      "title": "Atendido",
+                      "aria-label": "Atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "v",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "2",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-op",
+                     "texto": ">",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "0",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "details",
+             "classe": "dre-bloco dre-tipo-item dre-nao",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "summary",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "✗",
+                 "atributos": {
+                  "title": "Não atendido",
+                  "aria-label": "Não atendido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "item 2",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "-1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta",
+                 "texto": "0 de 1",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-ramo",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-titulo",
+                   "texto": "se",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "div",
+                   "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "div",
+                     "classe": "dre-cabeca",
+                     "texto": null,
+                     "atributos": {},
+                     "filhos": [
+                      {
+                       "tag": "span",
+                       "classe": "dre-icone",
+                       "texto": "✓",
+                       "atributos": {
+                        "title": "Atendido",
+                        "aria-label": "Atendido"
+                       },
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-rotulo",
+                       "texto": "v",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "-1",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-op",
+                       "texto": "≠",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "0",
+                       "atributos": {},
+                       "filhos": []
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✗",
+                     "atributos": {
+                      "title": "Não atendido",
+                      "aria-label": "Não atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "v",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "-1",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-op",
+                     "texto": ">",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "0",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "nome": "truncado",
+  "explicacao": {
+   "regra": "$any([v == 9 for v in vs])",
+   "resultado": false,
+   "atendido": false,
+   "erro": "",
+   "raiz": {
+    "tipo": "funcao",
+    "trecho": "$any([v == 9 for v in vs])",
+    "valor": false,
+    "atendido": false,
+    "erro": "",
+    "nome": "$any",
+    "argumentos": [
+     {
+      "tipo": "compreensao",
+      "trecho": "[v == 9 for v in vs]",
+      "valor": [
+       false,
+       false,
+       false,
+       false
+      ],
+      "atendido": null,
+      "erro": "",
+      "variavel": "v",
+      "lista": {
+       "tipo": "campo",
+       "trecho": "vs",
+       "valor": null,
+       "atendido": null,
+       "erro": "",
+       "rotulo": "vs",
+       "sensivel": false
+      },
+      "filtro": "",
+      "expressao": "v == 9",
+      "itens": [
+       {
+        "indice": 0,
+        "rotulo": "1",
+        "incluido": true,
+        "filtro": null,
+        "expressao": {
+         "tipo": "comparacao",
+         "trecho": "v == 9",
+         "valor": false,
+         "atendido": false,
+         "erro": "",
+         "operador": "==",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": 1,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "9",
+          "valor": 9,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "atendido": false
+       },
+       {
+        "indice": 1,
+        "rotulo": "2",
+        "incluido": true,
+        "filtro": null,
+        "expressao": {
+         "tipo": "comparacao",
+         "trecho": "v == 9",
+         "valor": false,
+         "atendido": false,
+         "erro": "",
+         "operador": "==",
+         "esquerda": {
+          "tipo": "campo",
+          "trecho": "v",
+          "valor": 2,
+          "atendido": null,
+          "erro": "",
+          "rotulo": "v",
+          "sensivel": false
+         },
+         "direita": {
+          "tipo": "literal",
+          "trecho": "9",
+          "valor": 9,
+          "atendido": null,
+          "erro": ""
+         }
+        },
+        "atendido": false
+       }
+      ],
+      "total": 4,
+      "truncado": true,
+      "melhor_item": 0
+     }
+    ]
+   }
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-nao",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-bloco dre-tipo-funcao dre-nao",
+     "texto": null,
+     "atributos": {},
+     "filhos": [
+      {
+       "tag": "div",
+       "classe": "dre-cabeca",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "span",
+         "classe": "dre-icone",
+         "texto": "✗",
+         "atributos": {
+          "title": "Não atendido",
+          "aria-label": "Não atendido"
+         },
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-titulo",
+         "texto": "pelo menos um é verdadeiro",
+         "atributos": {},
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-valor",
+         "texto": "falso",
+         "atributos": {},
+         "filhos": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "classe": "dre-filhos",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-compreensao dre-indef",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "?",
+             "atributos": {
+              "title": "Indefinido",
+              "aria-label": "Indefinido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-titulo",
+             "texto": "para cada v em",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "vs",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-meta",
+             "texto": "4 itens",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "classe": "dre-filhos",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "details",
+             "classe": "dre-bloco dre-tipo-item dre-nao",
+             "texto": null,
+             "atributos": {
+              "open": ""
+             },
+             "filhos": [
+              {
+               "tag": "summary",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "✗",
+                 "atributos": {
+                  "title": "Não atendido",
+                  "aria-label": "Não atendido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "item 0",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta",
+                 "texto": "0 de 1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta dre-destaque",
+                 "texto": "mais perto",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✗",
+                     "atributos": {
+                      "title": "Não atendido",
+                      "aria-label": "Não atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "v",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "1",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-op",
+                     "texto": "=",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "9",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "details",
+             "classe": "dre-bloco dre-tipo-item dre-nao",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "summary",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "✗",
+                 "atributos": {
+                  "title": "Não atendido",
+                  "aria-label": "Não atendido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "item 1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "2",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta",
+                 "texto": "0 de 1",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "✗",
+                     "atributos": {
+                      "title": "Não atendido",
+                      "aria-label": "Não atendido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "v",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "2",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-op",
+                     "texto": "=",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "9",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "classe": "dre-meta",
+             "texto": "mais 2 itens não exibidos",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "nome": "comparacao_com_compreensao",
+  "explicacao": {
+   "regra": "[v for v in vs if v > 1] == [2]",
+   "resultado": true,
+   "atendido": true,
+   "erro": "",
+   "raiz": {
+    "tipo": "comparacao",
+    "trecho": "[v for v in vs if v > 1] == [2]",
+    "valor": true,
+    "atendido": true,
+    "erro": "",
+    "operador": "==",
+    "esquerda": {
+     "tipo": "compreensao",
+     "trecho": "[v for v in vs if v > 1]",
+     "valor": [
+      2
+     ],
+     "atendido": null,
+     "erro": "",
+     "variavel": "v",
+     "lista": {
+      "tipo": "campo",
+      "trecho": "vs",
+      "valor": null,
+      "atendido": null,
+      "erro": "",
+      "rotulo": "vs",
+      "sensivel": false
+     },
+     "filtro": "v > 1",
+     "expressao": "v",
+     "itens": [
+      {
+       "indice": 0,
+       "rotulo": "1",
+       "incluido": false,
+       "filtro": {
+        "tipo": "comparacao",
+        "trecho": "v > 1",
+        "valor": false,
+        "atendido": false,
+        "erro": "",
+        "operador": ">",
+        "esquerda": {
+         "tipo": "campo",
+         "trecho": "v",
+         "valor": 1,
+         "atendido": null,
+         "erro": "",
+         "rotulo": "v",
+         "sensivel": false
+        },
+        "direita": {
+         "tipo": "literal",
+         "trecho": "1",
+         "valor": 1,
+         "atendido": null,
+         "erro": ""
+        }
+       },
+       "expressao": {
+        "tipo": "campo",
+        "trecho": "v",
+        "valor": 1,
+        "atendido": null,
+        "erro": "",
+        "rotulo": "v",
+        "sensivel": false
+       },
+       "atendido": null
+      },
+      {
+       "indice": 1,
+       "rotulo": "2",
+       "incluido": true,
+       "filtro": {
+        "tipo": "comparacao",
+        "trecho": "v > 1",
+        "valor": true,
+        "atendido": true,
+        "erro": "",
+        "operador": ">",
+        "esquerda": {
+         "tipo": "campo",
+         "trecho": "v",
+         "valor": 2,
+         "atendido": null,
+         "erro": "",
+         "rotulo": "v",
+         "sensivel": false
+        },
+        "direita": {
+         "tipo": "literal",
+         "trecho": "1",
+         "valor": 1,
+         "atendido": null,
+         "erro": ""
+        }
+       },
+       "expressao": {
+        "tipo": "campo",
+        "trecho": "v",
+        "valor": 2,
+        "atendido": null,
+        "erro": "",
+        "rotulo": "v",
+        "sensivel": false
+       },
+       "atendido": null
+      }
+     ],
+     "total": 2,
+     "truncado": false,
+     "melhor_item": 1
+    },
+    "direita": {
+     "tipo": "literal",
+     "trecho": "[2]",
+     "valor": [
+      2
+     ],
+     "atendido": null,
+     "erro": ""
+    }
+   }
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-sim",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+     "texto": null,
+     "atributos": {},
+     "filhos": [
+      {
+       "tag": "div",
+       "classe": "dre-cabeca",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "span",
+         "classe": "dre-icone",
+         "texto": "✓",
+         "atributos": {
+          "title": "Atendido",
+          "aria-label": "Atendido"
+         },
+         "filhos": []
+        },
+        {
+         "tag": "code",
+         "classe": "dre-trecho",
+         "texto": "[v for v in vs if v > 1]",
+         "atributos": {},
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-valor",
+         "texto": "[2]",
+         "atributos": {},
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-op",
+         "texto": "=",
+         "atributos": {},
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-valor",
+         "texto": "[2]",
+         "atributos": {},
+         "filhos": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "classe": "dre-filhos",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-compreensao dre-indef",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "?",
+             "atributos": {
+              "title": "Indefinido",
+              "aria-label": "Indefinido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-titulo",
+             "texto": "para cada v em",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "vs",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-meta",
+             "texto": "2 itens",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-meta",
+             "texto": "se",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "code",
+             "classe": "dre-trecho",
+             "texto": "v > 1",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "classe": "dre-filhos",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "details",
+             "classe": "dre-bloco dre-tipo-item dre-indef",
+             "texto": null,
+             "atributos": {},
+             "filhos": [
+              {
+               "tag": "summary",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "?",
+                 "atributos": {
+                  "title": "Indefinido",
+                  "aria-label": "Indefinido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "item 0",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta",
+                 "texto": "fora do filtro",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-ramo",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-titulo",
+                   "texto": "se",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "div",
+                   "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "div",
+                     "classe": "dre-cabeca",
+                     "texto": null,
+                     "atributos": {},
+                     "filhos": [
+                      {
+                       "tag": "span",
+                       "classe": "dre-icone",
+                       "texto": "✗",
+                       "atributos": {
+                        "title": "Não atendido",
+                        "aria-label": "Não atendido"
+                       },
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-rotulo",
+                       "texto": "v",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "1",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-op",
+                       "texto": ">",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "1",
+                       "atributos": {},
+                       "filhos": []
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-campo dre-indef",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "?",
+                     "atributos": {
+                      "title": "Indefinido",
+                      "aria-label": "Indefinido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "v",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "1",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "details",
+             "classe": "dre-bloco dre-tipo-item dre-indef",
+             "texto": null,
+             "atributos": {
+              "open": ""
+             },
+             "filhos": [
+              {
+               "tag": "summary",
+               "classe": "dre-cabeca",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "span",
+                 "classe": "dre-icone",
+                 "texto": "?",
+                 "atributos": {
+                  "title": "Indefinido",
+                  "aria-label": "Indefinido"
+                 },
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-titulo",
+                 "texto": "item 1",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-rotulo",
+                 "texto": "2",
+                 "atributos": {},
+                 "filhos": []
+                },
+                {
+                 "tag": "span",
+                 "classe": "dre-meta dre-destaque",
+                 "texto": "mais perto",
+                 "atributos": {},
+                 "filhos": []
+                }
+               ]
+              },
+              {
+               "tag": "div",
+               "classe": "dre-filhos",
+               "texto": null,
+               "atributos": {},
+               "filhos": [
+                {
+                 "tag": "div",
+                 "classe": "dre-ramo",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "span",
+                   "classe": "dre-titulo",
+                   "texto": "se",
+                   "atributos": {},
+                   "filhos": []
+                  },
+                  {
+                   "tag": "div",
+                   "classe": "dre-bloco dre-tipo-comparacao dre-sim",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "div",
+                     "classe": "dre-cabeca",
+                     "texto": null,
+                     "atributos": {},
+                     "filhos": [
+                      {
+                       "tag": "span",
+                       "classe": "dre-icone",
+                       "texto": "✓",
+                       "atributos": {
+                        "title": "Atendido",
+                        "aria-label": "Atendido"
+                       },
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-rotulo",
+                       "texto": "v",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "2",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-op",
+                       "texto": ">",
+                       "atributos": {},
+                       "filhos": []
+                      },
+                      {
+                       "tag": "span",
+                       "classe": "dre-valor",
+                       "texto": "1",
+                       "atributos": {},
+                       "filhos": []
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "div",
+                 "classe": "dre-bloco dre-tipo-campo dre-indef",
+                 "texto": null,
+                 "atributos": {},
+                 "filhos": [
+                  {
+                   "tag": "div",
+                   "classe": "dre-cabeca",
+                   "texto": null,
+                   "atributos": {},
+                   "filhos": [
+                    {
+                     "tag": "span",
+                     "classe": "dre-icone",
+                     "texto": "?",
+                     "atributos": {
+                      "title": "Indefinido",
+                      "aria-label": "Indefinido"
+                     },
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-rotulo",
+                     "texto": "v",
+                     "atributos": {},
+                     "filhos": []
+                    },
+                    {
+                     "tag": "span",
+                     "classe": "dre-valor",
+                     "texto": "2",
+                     "atributos": {},
+                     "filhos": []
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "nome": "erro",
+  "explicacao": {
+   "regra": "a == 1 or b['x'] == 2.5",
+   "resultado": null,
+   "atendido": null,
+   "erro": "EvaluationError: data type mismatch (container is null)",
+   "raiz": {
+    "tipo": "logico",
+    "trecho": "a == 1 or b['x'] == 2.5",
+    "valor": null,
+    "atendido": null,
+    "erro": "EvaluationError: data type mismatch (container is null)",
+    "operador": "or",
+    "filhos": [
+     {
+      "tipo": "comparacao",
+      "trecho": "a == 1",
+      "valor": false,
+      "atendido": false,
+      "erro": "",
+      "operador": "==",
+      "esquerda": {
+       "tipo": "campo",
+       "trecho": "a",
+       "valor": 2,
+       "atendido": null,
+       "erro": "",
+       "rotulo": "a",
+       "sensivel": false
+      },
+      "direita": {
+       "tipo": "literal",
+       "trecho": "1",
+       "valor": 1,
+       "atendido": null,
+       "erro": ""
+      }
+     },
+     {
+      "tipo": "comparacao",
+      "trecho": "b['x'] == 2.5",
+      "valor": null,
+      "atendido": null,
+      "erro": "EvaluationError: data type mismatch (container is null)",
+      "operador": "==",
+      "esquerda": {
+       "tipo": "campo",
+       "trecho": "b['x']",
+       "valor": null,
+       "atendido": null,
+       "erro": "EvaluationError: data type mismatch (container is null)",
+       "rotulo": "b.x",
+       "sensivel": false
+      },
+      "direita": {
+       "tipo": "literal",
+       "trecho": "2.5",
+       "valor": 2.5,
+       "atendido": null,
+       "erro": ""
+      }
+     }
+    ]
+   }
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-indef",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-bloco dre-tipo-logico dre-indef",
+     "texto": null,
+     "atributos": {},
+     "filhos": [
+      {
+       "tag": "div",
+       "classe": "dre-cabeca",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "span",
+         "classe": "dre-icone",
+         "texto": "?",
+         "atributos": {
+          "title": "Indefinido",
+          "aria-label": "Indefinido"
+         },
+         "filhos": []
+        },
+        {
+         "tag": "span",
+         "classe": "dre-titulo",
+         "texto": "alguma destas condições",
+         "atributos": {},
+         "filhos": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "classe": "dre-erro",
+       "texto": "EvaluationError: data type mismatch (container is null)",
+       "atributos": {},
+       "filhos": []
+      },
+      {
+       "tag": "div",
+       "classe": "dre-filhos",
+       "texto": null,
+       "atributos": {},
+       "filhos": [
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-comparacao dre-nao",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "✗",
+             "atributos": {
+              "title": "Não atendido",
+              "aria-label": "Não atendido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "a",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "2",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-op",
+             "texto": "=",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "1",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "classe": "dre-bloco dre-tipo-comparacao dre-indef",
+         "texto": null,
+         "atributos": {},
+         "filhos": [
+          {
+           "tag": "div",
+           "classe": "dre-cabeca",
+           "texto": null,
+           "atributos": {},
+           "filhos": [
+            {
+             "tag": "span",
+             "classe": "dre-icone",
+             "texto": "?",
+             "atributos": {
+              "title": "Indefinido",
+              "aria-label": "Indefinido"
+             },
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-rotulo",
+             "texto": "b.x",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "nulo",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-op",
+             "texto": "=",
+             "atributos": {},
+             "filhos": []
+            },
+            {
+             "tag": "span",
+             "classe": "dre-valor",
+             "texto": "2.5",
+             "atributos": {},
+             "filhos": []
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "classe": "dre-erro",
+           "texto": "EvaluationError: data type mismatch (container is null)",
+           "atributos": {},
+           "filhos": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "nome": "invalida",
+  "explicacao": {
+   "regra": "idade >=",
+   "resultado": null,
+   "atendido": null,
+   "erro": "RuleSyntaxError: syntax error at: EOF",
+   "raiz": null
+  },
+  "modelo": {
+   "tag": "div",
+   "classe": "dre-blocos dre-indef",
+   "texto": null,
+   "atributos": {},
+   "filhos": [
+    {
+     "tag": "div",
+     "classe": "dre-erro",
+     "texto": "RuleSyntaxError: syntax error at: EOF",
+     "atributos": {},
+     "filhos": []
+    }
+   ]
+  }
+ }
+]

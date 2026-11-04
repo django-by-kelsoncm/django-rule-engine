@@ -27,12 +27,14 @@ class RuleWidget(forms.Textarea):
                 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material.min.css',
                 'rule_widget/rule_widget.css',
                 'rule_widget/rule_widget_highlighting.css',  # Estilos customizados de highlighting
+                'rule_widget/rule_blocks.css',  # Explicação em blocos encaixados
             )
         }
         js = (
             'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js',
             'rule_widget/codemirror-rule-engine.js',  # Modo customizado para rule-engine
             'rule_widget/rule_explain.js',  # Regra colorida e tabela Campo | Esperado | Valor
+            'rule_widget/rule_blocks.js',  # Explicação em blocos encaixados (explain_tree)
             'rule_widget/rule_widget.js',
         )
     
