@@ -76,6 +76,7 @@ Endpoint para validação via frontend ou integrações externas:
 .. code-block:: text
 
    POST /api/validate-rule/
+   POST /api/explain-rule/
 
 Payload de requisição:
 

@@ -29,6 +29,7 @@
             this.validateBtn = container.querySelector('.btn-validate');
             this.resultDiv = container.querySelector('.validation-result');
             this.resultContent = container.querySelector('.result-content');
+            this.resultExplanation = container.querySelector('.result-explanation');
             this.closeResultBtn = container.querySelector('.btn-close-result');
             
             this.validationTimeout = null;
@@ -153,7 +154,8 @@
                     },
                     body: JSON.stringify({
                         rule: rule,
-                        data: parsedData
+                        data: parsedData,
+                        explain: true
                     })
                 });
                 
@@ -164,7 +166,7 @@
                         const output = this.formatValidationSuccess(result);
                         // Se a condição for falsa, usa warning (amarelo), senão success (verde)
                         const resultType = result.matches === false ? 'warning' : 'success';
-                        this.showResult(resultType, output);
+                        this.showResult(resultType, output, result.explanation);
                     } else {
                         this.showResult('error', `Erro de validação:\n${result.error}`);
                     }
@@ -212,9 +214,15 @@
             return value;
         }
         
-        showResult(type, message) {
+        showResult(type, message, explanation) {
             this.resultDiv.className = `validation-result ${type}`;
             this.resultContent.textContent = message;
+            if (this.resultExplanation) {
+                this.resultExplanation.replaceChildren();
+                if (explanation && window.RuleExplain) {
+                    this.resultExplanation.appendChild(window.RuleExplain.renderizar(document, explanation));
+                }
+            }
             this.resultDiv.style.display = 'block';
         }
         

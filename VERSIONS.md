@@ -1,5 +1,24 @@
 # Version History
 
+## 1.1.0
+
+### 🔍 Rule explanation (`django_rule_engine.explain`)
+
+- New public module `django_rule_engine.explain` with `explain(rule, context, *, sensitive=...)`:
+  splits the rule on top-level `and`/`or` (only when all are the same operator, respecting quotes,
+  parentheses and brackets), splits each atom into field / operator / expected value
+  (`==`, `!=`, `>=`, `<=`, `>`, `<`, `=~`, `=~~`, `!~`, `!~~`, `in`, `not in`; an atom without a
+  comparison expects "verdadeiro") and evaluates everything with `rule_engine` itself.
+- `$any`/`$all` over comprehensions (`[EXPR for x in LIST if FILTER]`, any list) are detailed per item.
+- `atendido` is `True`/`False`/`None` (error); values are JSON-safe (Decimal, tuples, dates, sets).
+- Sensitive fields are hidden by a configurable regex (`DEFAULT_SENSITIVE_FIELDS`,
+  `RULE_ENGINE_EXPLAIN_SENSITIVE_FIELDS`).
+- New endpoint `POST /api/explain-rule/`; `POST /api/validate-rule/` accepts `"explain": true`.
+- Widget: colored rule (green / red / yellow) and "Campo | Esperado | Valor" table, one column per
+  item in `$any`/`$all` (`static/rule_widget/rule_explain.js`).
+- Tests now run with pytest-django (`pytest`) and `node --test "tests/js/*.test.js"`, also in CI.
+- `django_rule_engine.__version__` now matches the package version.
+
 ## 1.0.1
 
 ### 🎯 New Method: `matches()`

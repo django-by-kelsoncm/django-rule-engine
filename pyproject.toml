@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-rule-engine"
-version = "1.0.3"
+version = "1.1.0"
 description = "Django field and widget for rule-engine with visual editor"
 readme = "README.md"
 authors = [
@@ -108,3 +108,8 @@ exclude = [
     "dist",
 ]
 extend-ignore = ["E203", "W503"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["."]
+testpaths = ["tests", "src/django_rule_engine/tests.py"]

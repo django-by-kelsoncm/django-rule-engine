@@ -18,10 +18,10 @@ jobs:
         django-version: ["4.2", "5.0", "5.1", "5.2"]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: ${{ matrix.python-version }}
     
@@ -34,15 +34,34 @@ jobs:
     - name: Check package installation
       run: |
         python -c "import django_rule_engine; print('Package imported successfully')"
-    
+
+    - name: Run tests
+      run: |
+        pip install pytest pytest-django
+        pytest -q
+
+  js:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Set up Node
+      uses: actions/setup-node@v7
+      with:
+        node-version: "24"
+
+    - name: Run JS tests
+      run: node --test "tests/js/*.test.js"
+
   lint:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: "3.x"
     
@@ -73,10 +92,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: "3.x"
     

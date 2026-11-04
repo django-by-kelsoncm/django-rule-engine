@@ -2,10 +2,13 @@
 
 import json
 import logging
+from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
 import rule_engine
+
+from ..explain import DEFAULT_SENSITIVE_FIELDS, explain
 
 logger = logging.getLogger(__name__)
 
@@ -64,13 +67,16 @@ def validate_rule(request):
         try:
             result = rule.matches(data)
             
-            return JsonResponse({
+            payload = {
                 'valid': True,
                 'result': result,
                 'matches': result,
                 'rule': rule_text,
                 'data': data
-            })
+            }
+            if body.get('explain'):
+                payload['explanation'] = _explain(rule_text, data)
+            return JsonResponse(payload)
         except Exception:
             logger.exception("Erro ao avaliar regra")
             return JsonResponse({
@@ -89,3 +95,53 @@ def validate_rule(request):
             'valid': False,
             'error': 'Erro interno'
         }, status=500)
+
+
+def _sensitive_fields():
+    """Regex dos campos ocultados na explicação (``RULE_ENGINE_EXPLAIN_SENSITIVE_FIELDS``)."""
+    return getattr(settings, 'RULE_ENGINE_EXPLAIN_SENSITIVE_FIELDS', DEFAULT_SENSITIVE_FIELDS)
+
+
+def _explain(rule_text, data):
+    return explain(rule_text, data, sensitive=_sensitive_fields())
+
+
+@require_http_methods(["POST"])
+@ensure_csrf_cookie
+def explain_rule(request):
+    """
+    Explica, trecho a trecho, por que a regra é (ou não) atendida pelos dados.
+
+    POST /api/explain-rule/
+    Body: {"rule": "age >= 18 and status == 'active'", "data": {"age": 15, "status": "active"}}
+
+    Response (200): {"valid": true, "explanation": {...}}  (ver ``django_rule_engine.explain``)
+    Erros (400): {"valid": false, "error": "..."} para JSON inválido, regra vazia ou que não compila.
+    """
+    try:
+        body = json.loads(request.body)
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return JsonResponse({'valid': False, 'error': 'JSON inválido'}, status=400)
+    if not isinstance(body, dict):
+        return JsonResponse({'valid': False, 'error': 'JSON inválido'}, status=400)
+
+    rule_text = body.get('rule') or ''
+    data = body.get('data') or {}
+    if not isinstance(rule_text, str) or not rule_text.strip():
+        return JsonResponse({'valid': False, 'error': 'Regra não pode ser vazia'}, status=400)
+    if not isinstance(data, dict):
+        return JsonResponse({'valid': False, 'error': 'Dados de exemplo devem ser um objeto JSON'},
+                            status=400)
+
+    try:
+        rule_engine.Rule(rule_text)
+    except Exception:
+        logger.info("Regra não compila", exc_info=True)
+        return JsonResponse({'valid': False, 'error': 'Erro ao compilar regra'}, status=400)
+
+    try:
+        explanation = _explain(rule_text, data)
+    except Exception:
+        logger.exception("Erro interno ao explicar regra")
+        return JsonResponse({'valid': False, 'error': 'Erro interno'}, status=500)
+    return JsonResponse({'valid': True, 'explanation': explanation})
