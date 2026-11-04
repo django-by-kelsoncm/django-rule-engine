@@ -31,8 +31,36 @@ class MyModel(models.Model):
 ## ⚡ REST API
 Built-in validation endpoint for frontend validation:
 ```
-POST /api/validate-rule/
+POST /api/validate-rule/   # {"rule", "data", "explain": true} also returns "explanation"
+POST /api/explain-rule/    # {"rule", "data"} -> {"valid": true, "explanation": {...}}
 ```
+
+## 🔍 Rule Explanation
+Find out *why* a rule matches or not. `explain()` splits the rule on its top-level `and`/`or`,
+splits each piece into field / operator / expected value and evaluates everything with
+`rule_engine` itself:
+
+```python
+from django_rule_engine.explain import explain
+
+explain("age >= 18 and status == 'active'", {"age": 16, "status": "active"})
+# {"atendido": False, "operador": "and", "condicoes": [
+#    {"condicao": "age >= 18", "atendido": False,
+#     "detalhes": {"tipo": "simples", "linhas": [
+#        {"campo": "age", "operador": ">=", "esperado": "18", "valor": 16, "atendido": False, ...}]}},
+#    {"condicao": "status == 'active'", "atendido": True, ...}]}
+```
+
+- `$any([...  for x in LIST])` / `$all(...)` comprehensions (any list, optional `if` filter) are
+  detailed per item (`valores`/`resultados` lists);
+- `atendido` is `True`/`False`, or `None` when evaluation fails (message in `erro`);
+- values of sensitive fields (CPF, e-mail, phone, password...) are hidden by default; change the
+  regex with `explain(..., sensitive=r"...")` or the `RULE_ENGINE_EXPLAIN_SENSITIVE_FIELDS` setting
+  (`None` shows everything).
+
+The widget uses it when you test the rule with the example data: each piece of the rule is
+colored (green = matched, red = not matched, yellow = error) and a "Campo | Esperado | Valor"
+table is shown, with one column per item in `$any`/`$all`.
 
 
 ## 🎯 Django Admin Integration
@@ -133,6 +161,7 @@ Comprehensive documentation is included in the package:
 REST endpoint for dynamically validating rule-engine rules.
 
 - **Endpoint:** `POST /api/validate-rule/`
+- **Explanation:** `POST /api/explain-rule/` (see [Rule Explanation](#-rule-explanation))
 - **Documentation:** [fields/README.md](fields/README.md#validation-api)
 
 ## 🚀 Quick Start

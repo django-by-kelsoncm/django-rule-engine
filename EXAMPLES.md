@@ -303,6 +303,42 @@ except Exception as e:
     # Handle error appropriately
 ```
 
+## Explaining a rule
+
+```python
+from django_rule_engine.explain import explain
+
+rule = (
+    "tipo_usuario in ['Aluno'] and $any([m['tipo'] == 'aluno' and m['detalhamento']['ativo'] == true"
+    " for m in outras_matriculas])"
+)
+context = {
+    "tipo_usuario": "Aluno",
+    "cpf": "000.000.000-00",
+    "outras_matriculas": [
+        {"tipo": "aluno", "detalhamento": {"ativo": False}},
+        {"tipo": "servidor", "detalhamento": {"ativo": True}},
+    ],
+}
+result = explain(rule, context)
+result["atendido"]                       # False
+comp = result["condicoes"][1]["detalhes"]
+comp["tipo"], comp["funcao"], comp["itens"]  # ("por_item", "any", 2)
+[(l["rotulo"], l["valores"], l["resultados"]) for l in comp["linhas"]]
+# [("tipo", ["aluno", "servidor"], [True, False]),
+#  ("detalhamento.ativo", [False, True], [False, True])]
+# No item matches both pieces at the same time, so $any(...) is False.
+
+explain("cpf == '1'", context)["condicoes"][0]["detalhes"]["linhas"][0]["valor"]  # None (sensitive)
+explain("cpf == '1'", context, sensitive=None)  # shows every value
+```
+
+Over HTTP:
+
+```bash
+curl -X POST http://localhost:8000/api/explain-rule/ -H 'Content-Type: application/json'   -d '{"rule": "age >= 18 and status == 'active'", "data": {"age": 16, "status": "active"}}'
+```
+
 ## Examples of common rules you can use:
 
 > RULE EXAMPLES:
