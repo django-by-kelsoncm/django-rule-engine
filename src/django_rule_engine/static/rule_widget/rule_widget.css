@@ -234,3 +234,84 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Explicação da regra (rule_explain.js): verde atendido, vermelho não atendido, amarelo erro */
+.validation-result .result-explanation:empty {
+    display: none;
+}
+
+.rule-explain {
+    margin-top: 12px;
+    color: #333;
+}
+
+.rule-explain-rule {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 0 0 12px;
+}
+
+.rule-explain-rule span {
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+.rule-explain-atendido {
+    background: #d4edda;
+    color: #155724;
+}
+
+.rule-explain-nao-atendido {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.rule-explain-erro {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.rule-explain-condition {
+    margin-bottom: 12px;
+    overflow-x: auto;
+}
+
+.rule-explain-title {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.rule-explain-error {
+    font-size: 12px;
+    color: #856404;
+    margin-bottom: 4px;
+}
+
+.rule-explain-table {
+    border-collapse: collapse;
+    font-size: 12px;
+    background: #fff;
+    width: auto;
+}
+
+.rule-explain-table th,
+.rule-explain-table td {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    text-align: left;
+    vertical-align: top;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+}
+
+.rule-explain-table th {
+    background: #f0f0f0;
+    font-family: inherit;
+}

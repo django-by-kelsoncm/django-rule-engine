@@ -32,6 +32,7 @@ class RuleWidget(forms.Textarea):
         js = (
             'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js',
             'rule_widget/codemirror-rule-engine.js',  # Modo customizado para rule-engine
+            'rule_widget/rule_explain.js',  # Regra colorida e tabela Campo | Esperado | Valor
             'rule_widget/rule_widget.js',
         )
     
