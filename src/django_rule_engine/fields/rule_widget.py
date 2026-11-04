@@ -62,7 +62,8 @@ class RuleWidget(forms.Textarea):
             formatted_example = self.example_data
         
         # Cria um JSONEditorWidget para o campo de exemplo
-        json_widget = JSONEditorWidget(height='120px')  # ~5 linhas
+        # Altura mínima: menu (35px) + ace (min-height 150px no jsoneditor.css) + status (26px)
+        json_widget = JSONEditorWidget(width='100%', height='240px')
         json_widget_name = f"{name}_example_data"
         json_widget_attrs = {
             'id': f"{attrs.get('id', name)}_example_data",

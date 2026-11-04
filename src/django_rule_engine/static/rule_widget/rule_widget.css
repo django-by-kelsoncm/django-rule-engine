@@ -315,3 +315,10 @@
     background: #f0f0f0;
     font-family: inherit;
 }
+
+/* Editor JSON dos dados de exemplo (django-json-widget): ocupa a largura e não vaza do container */
+.rule-widget-container .example-data-json-editor {
+    display: block !important;
+    max-width: 100%;
+    box-sizing: border-box;
+}
